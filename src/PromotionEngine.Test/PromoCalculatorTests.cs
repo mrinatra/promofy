@@ -25,6 +25,8 @@ namespace PromotionEngine.Test
             dynamic modifiedCart = promoEngine.ApplyPromos(promotions, cartItems);
 
             Assert.Equal(modifiedCart.TotalPrice, modifiedCart.TotalOffPrice);
+            Assert.Equal(100, modifiedCart.TotalPrice);
+            Assert.Equal(100, modifiedCart.TotalOffPrice);
         }
 
         [Theory]

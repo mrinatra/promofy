@@ -121,11 +121,19 @@ namespace PromotionEngine
 
         private float ComputeOffPrice(Item item, Gets get)
         {
-            float offPrice = get.Off.Fixed;
-            int leftCount = item.Quantity - get.Quantity;
-            offPrice = GetPrice(offPrice, item, get, leftCount);
+            if(get.Off.Discount != 0)
+            {
+                return (item.Price * item.Quantity) * (1 - get.Off.Discount / 100);
+            }
+            else
+            {
+                float offPrice = get.Off.Fixed;
+                int leftCount = item.Quantity - get.Quantity;
+                offPrice = GetPrice(offPrice, item, get, leftCount);
 
-            return offPrice;
+                return offPrice;
+            }
+            
         }
 
         private float GetPrice(float offPrice, Item item, Gets get, int leftCount)

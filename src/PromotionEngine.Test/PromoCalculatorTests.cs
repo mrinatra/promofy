@@ -61,6 +61,22 @@ namespace PromotionEngine.Test
             Assert.Equal(280, modifiedCart.TotalOffPrice);
         }
 
+        [Theory]
+        [InlineData("itemsForScenarioD.json")]
+        public void Test_When_AllPromos_Are_Applied_It_Should_Apply_To_All_Eligble_Items_Scenario_D_Three_Eligible_Items(string itemsFileName)
+        {
+            var promotions = GetAllPromotions();
+
+            var cartItems = GetCartItems(itemsFileName);
+
+            var promoEngine = new PromoCalculator();
+
+            dynamic modifiedCart = promoEngine.ApplyPromos(promotions, cartItems);
+
+            Assert.Equal(100, modifiedCart.TotalPrice);
+            Assert.Equal(70, modifiedCart.TotalOffPrice);
+        }
+
         private List<Item> GetCartItems(string itemsFileName)
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "TestData", itemsFileName);

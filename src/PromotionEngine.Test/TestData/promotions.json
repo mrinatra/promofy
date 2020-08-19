@@ -70,5 +70,23 @@
         }
       }
     ]
+  },
+  {
+    "Id": "promotion4",
+    "Description": "buy all E at 30% off",
+    "Buy": [
+      {
+        "Sku": "E",
+        "Quantity": 1
+      }
+    ],
+    "Get": [
+      {
+        "Sku": "E",
+        "Off": {
+          "Discount": 30
+        }
+      }
+    ]
   }
 ]

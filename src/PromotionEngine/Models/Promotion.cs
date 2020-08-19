@@ -26,6 +26,7 @@ namespace PromotionEngine.Models
 
     public class Off
     {
+        public float Discount { get; set; }
         public float Fixed { get; set; }
     }
 }

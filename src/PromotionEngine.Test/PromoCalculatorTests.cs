@@ -1,6 +1,9 @@
 using Moq;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Text.Json;
 using Xunit;
 
 namespace PromotionEngine.Test
@@ -25,12 +28,20 @@ namespace PromotionEngine.Test
 
         private object GetCartItems(string itemsFileName)
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "TestData", itemsFileName);
+            var fileData = File.ReadAllText(filePath);
+            var items = JsonSerializer.Deserialize<List<Item>>(fileData);
+
+            return items;
         }
 
         private object GetAllPromotions()
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "TestData", "promotions.json");
+            var fileData = File.ReadAllText(filePath);
+            var promotions = JsonSerializer.Deserialize<List<Promotion>>(fileData);
+
+            return promotions;
         }
     }
 }

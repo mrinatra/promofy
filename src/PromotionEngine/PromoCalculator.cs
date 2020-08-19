@@ -44,6 +44,7 @@ namespace PromotionEngine
             return markedItems;
         }
 
+        #region Check if buy criteria is satisfied
         private (bool applied, List<MarkedItem> items) ApplyBuys(Promotion promo, List<MarkedItem> markedItems)
         {
             bool applied = true;
@@ -80,8 +81,36 @@ namespace PromotionEngine
             }
             return (true, skuList);
         }
+        #endregion
 
         private List<MarkedItem> ApplyGets(Promotion promo, List<MarkedItem> markedItems)
+        {
+            foreach (var get in promo.Get)
+            {
+                markedItems = ApplyGet(get, markedItems, promo);
+            }
+            return markedItems;
+        }
+
+        private List<MarkedItem> ApplyGet(Gets get, List<MarkedItem> markedItems, Promotion promo)
+        {
+            foreach (var m in markedItems)
+            {
+                if (m.Item.Sku == get.Sku)
+                {
+                    var isMarkedBuy = m.MarkedBuys.ContainsKey(promo.Id);
+                    var isMarkedGet = m.MarkedGets.ContainsKey(promo.Id);
+
+                    if (isMarkedBuy && !isMarkedGet)
+                    {
+                        m.MarkedGets[promo.Id] = ComputeOffPrice(m.Item, get);
+                    }
+                }
+            }
+            return markedItems;
+        }
+
+        private float ComputeOffPrice(Item item, Gets get)
         {
             throw new NotImplementedException();
         }

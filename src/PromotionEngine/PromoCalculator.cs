@@ -27,6 +27,8 @@ namespace PromotionEngine
                 markedItems = ApplyPromo(promo, markedItems);
             }
 
+            var prices = ComputeTotalPrices(markedItems);
+
             throw new NotImplementedException();
         }
 
@@ -131,6 +133,36 @@ namespace PromotionEngine
                 offPrice += get.Off.Fixed;
                 leftCount -= get.Quantity;
                 offPrice = GetPrice(offPrice, item, get, leftCount);
+            }
+            return offPrice;
+        }
+
+        private (float, float) ComputeTotalPrices(List<MarkedItem> markedItems)
+        {
+            float totalPrice = 0;
+            float totalOffPrice = 0;
+            foreach (var item in markedItems)
+            {
+                totalPrice = totalPrice + item.Item.Price * item.Item.Quantity;
+
+                totalOffPrice = totalOffPrice + GetOffPrice(item.Item.Price * item.Item.Quantity, item);
+            }
+            return (totalPrice, totalOffPrice);
+        }
+
+        private float GetOffPrice(float originalPrice, MarkedItem item)
+        {
+            if (item.MarkedGets.Count == 0)
+            {
+                return originalPrice;
+
+            }
+
+            float offPrice = 0;
+
+            foreach (var get in item.MarkedGets)
+            {
+                offPrice += get.Value;
             }
             return offPrice;
         }

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "promotion1",
+    "Description": "buy three A at a price of 130$",
+    "Buy": [
+      {
+        "Sku": "A",
+        "Quantity": 3
+      }
+    ],
+    "Get": [
+      {
+        "Sku": "A",
+        "Quantity": 3,
+        "Off": {
+          "Discount": 0,
+          "Fixed": 130
+        }
+      }
+    ]
+  },
+  {
+    "Id": "promotion2",
+    "Description": "buy two B at 45$",
+    "Buy": [
+      {
+        "Sku": "B",
+        "Quantity": 2
+      }
+    ],
+    "Get": [
+      {
+        "Sku": "B",
+        "Quantity": 2,
+        "Off": {
+          "Discount": 0,
+          "Fixed": 45
+        }
+      }
+    ]
+  },
+  {
+    "Id": "promotion3",
+    "Description": "buy C and D at 30$",
+    "Buy": [
+      {
+        "Sku": "C",
+        "Quantity": 1
+      },
+      {
+        "Sku": "D",
+        "Quantity": 1
+      }
+    ],
+    "Get": [
+      {
+        "Sku": "C",
+        "Quantity": 1,
+        "Off": {
+          "Discount": 0,
+          "Fixed": 30
+        }
+      },
+      {
+        "Sku": "D",
+        "Quantity": 1,
+        "Off": {
+          "Discount": 0,
+          "Fixed": 0
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "Sku": "A",
+    "Quantity": 3,
+    "Price": 50
+  },
+  {
+    "Sku": "B",
+    "Quantity": 5,
+    "Price": 30
+  },
+  {
+    "Sku": "C",
+    "Quantity": 1,
+    "Price": 20
+  },
+  {
+    "Sku": "D",
+    "Quantity": 1,
+    "Price": 15
+  }
+]

@@ -1,3 +1,4 @@
+using Castle.Core.Internal;
 using Moq;
 using PromotionEngine.Models;
 using System;
@@ -75,6 +76,20 @@ namespace PromotionEngine.Test
 
             Assert.Equal(100, modifiedCart.TotalPrice);
             Assert.Equal(70, modifiedCart.TotalOffPrice);
+        }
+
+        [Fact]
+        public void Test_Get_Active_Promotions_Only()
+        {
+            var totalPromotions = GetAllPromotions();
+           
+            var promoEngine = new PromoCalculator();
+
+            List<Promotion> activePromotions = promoEngine.GetActivePromotions(totalPromotions);
+
+            Assert.NotNull(activePromotions);
+            Assert.Equal(4, activePromotions.Count);
+            Assert.Equal(5, totalPromotions.Count);
         }
 
         private List<Item> GetCartItems(string itemsFileName)

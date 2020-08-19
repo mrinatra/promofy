@@ -101,6 +101,11 @@ namespace PromotionEngine
             return markedItems;
         }
 
+        public List<Promotion> GetActivePromotions(List<Promotion> promotions)
+        {
+            throw new NotImplementedException();
+        }
+
         private List<MarkedItem> ApplyGet(Gets get, List<MarkedItem> markedItems, Promotion promo)
         {
             foreach (var m in markedItems)

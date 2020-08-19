@@ -18,4 +18,19 @@
     <ProjectReference Include="..\PromotionEngine\PromotionEngine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\itemsForScenarioA.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\itemsForScenarioB.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\itemsForScenarioC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\promotions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

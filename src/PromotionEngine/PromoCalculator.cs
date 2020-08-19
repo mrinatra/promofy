@@ -29,7 +29,14 @@ namespace PromotionEngine
 
             var prices = ComputeTotalPrices(markedItems);
 
-            throw new NotImplementedException();
+            PromofiedCart modifiedCart = new PromofiedCart()
+            {
+                items = markedItems,
+                TotalPrice = prices.Item1,
+                TotalOffPrice = prices.Item2               
+            };
+
+            return modifiedCart;
         }
 
         private List<MarkedItem> ApplyPromo(Promotion promo, List<MarkedItem> markedItems)

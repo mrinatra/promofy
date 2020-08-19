@@ -9,9 +9,9 @@ using Xunit;
 
 namespace PromotionEngine.Test
 {
+    [ExcludeFromCodeCoverage]
     public class PromoCalculatorTests
-    {
-        [ExcludeFromCodeCoverage]
+    {      
         [Theory]
         [InlineData("itemsForScenarioA.json")]
         public void Test_When_AllPromos_Are_Applied_It_Should_Apply_To_All_Eligble_Items_Scenario_A_No_Eligible_Items(string itemsFileName)

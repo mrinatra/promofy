@@ -59,7 +59,7 @@ namespace PromotionEngine.Test
             Assert.Equal(280, modifiedCart.TotalOffPrice);
         }
 
-        private object GetCartItems(string itemsFileName)
+        private List<Item> GetCartItems(string itemsFileName)
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "TestData", itemsFileName);
             var fileData = File.ReadAllText(filePath);
@@ -68,7 +68,7 @@ namespace PromotionEngine.Test
             return items;
         }
 
-        private object GetAllPromotions()
+        private List<Promotion> GetAllPromotions()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "TestData", "promotions.json");
             var fileData = File.ReadAllText(filePath);

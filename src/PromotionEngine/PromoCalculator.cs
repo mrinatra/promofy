@@ -8,7 +8,17 @@ namespace PromotionEngine
     public class PromoCalculator
     {
         public object ApplyPromos(List<Promotion> promotions, List<Item> cartItems)
-        {
+        {         
+            if(cartItems == null || cartItems.Count == 0)
+            {
+                throw new NotSupportedException("Cart cannot be null.");
+            }
+
+            if (promotions == null || promotions.Count == 0)
+            {
+                throw new NotSupportedException("No promotions to apply.");
+            }
+
             List<MarkedItem> markedItems = new List<MarkedItem>();
 
             foreach (var item in cartItems)

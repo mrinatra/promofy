@@ -103,7 +103,7 @@ namespace PromotionEngine
 
         public List<Promotion> GetActivePromotions(List<Promotion> promotions)
         {
-            throw new NotImplementedException();
+            return promotions.Where(p => p.IsActive).ToList();
         }
 
         private List<MarkedItem> ApplyGet(Gets get, List<MarkedItem> markedItems, Promotion promo)

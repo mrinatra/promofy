@@ -5,6 +5,7 @@ namespace PromotionEngine.Models
     public class Promotion
     {
         public string Id { get; set; }
+        public bool IsActive { get; set; }
         public string Description { get; set; }
         public List<Buys> Buy { get; set; }
         public List<Gets> Get { get; set; }

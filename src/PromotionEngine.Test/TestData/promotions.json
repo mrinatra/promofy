@@ -2,6 +2,7 @@
   {
     "Id": "promotion1",
     "Description": "buy three A at a price of 130$",
+    "IsActive": true,
     "Buy": [
       {
         "Sku": "A",
@@ -21,6 +22,7 @@
   },
   {
     "Id": "promotion2",
+    "IsActive": true,
     "Description": "buy two B at 45$",
     "Buy": [
       {
@@ -41,6 +43,7 @@
   },
   {
     "Id": "promotion3",
+    "IsActive": true,
     "Description": "buy C and D at 30$",
     "Buy": [
       {
@@ -73,7 +76,27 @@
   },
   {
     "Id": "promotion4",
+    "IsActive": true,
     "Description": "buy all E at 30% off",
+    "Buy": [
+      {
+        "Sku": "E",
+        "Quantity": 1
+      }
+    ],
+    "Get": [
+      {
+        "Sku": "E",
+        "Off": {
+          "Discount": 30
+        }
+      }
+    ]
+  },
+  {
+    "Id": "promotion5",
+    "IsActive": false,
+    "Description": "inactive promotion",
     "Buy": [
       {
         "Sku": "E",
